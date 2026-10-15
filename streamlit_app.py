@@ -921,11 +921,12 @@ with st.sidebar:
     st.markdown("<b style='color:#94A3B8;font-size:11px;letter-spacing:0.5px;'>⚡ LÕI AI GOOGLE GEMINI</b>", unsafe_allow_html=True)
     selected_model = st.selectbox(
         "Mô hình AI:",
-        ["Gemini 2.0 Flash (Tối ưu)", "Gemini 1.5 Pro (Nâng cao)"],
+        ["Gemini 3.8 Flash"],
         index=0,
-        label_visibility="collapsed"
+        label_visibility="collapsed",
+        key="sb_cb_model"
     )
-    st.session_state.selected_model = selected_model
+    st.session_state.selected_model = "Gemini 3.8 Flash"
 
     st.markdown("---")
     st.markdown("""
@@ -1053,7 +1054,7 @@ elif st.session_state.current_view == "workspace":
     cur_data = st.session_state.current_extracted_data
 
     st.markdown('<div class="action-toolbar-box">', unsafe_allow_html=True)
-    tb_c1, tb_c2, tb_c3, tb_c4, tb_c5, tb_c6, tb_c7, tb_c8 = st.columns([1.0, 2.0, 0.9, 1.1, 1.4, 1.4, 1.4, 1.8])
+    tb_c1, tb_c2, tb_c3, tb_c4, tb_c5, tb_c6, tb_c7, tb_c8 = st.columns([0.9, 1.9, 0.8, 1.0, 1.3, 1.2, 1.7, 1.8])
 
     with tb_c1:
         if st.button("← Trang chủ", use_container_width=True, key="tb_btn_home"):
@@ -1109,12 +1110,12 @@ elif st.session_state.current_view == "workspace":
     with tb_c7:
         selected_model = st.selectbox(
             "Lõi AI:",
-            ["Gemini 3.8 Flash", "Gemini 3.5 Flash", "gemini-3.1-pro-preview"],
+            ["Gemini 3.8 Flash"],
             index=0,
             label_visibility="collapsed",
             key="tb_cb_model"
         )
-        st.session_state.selected_model = selected_model
+        st.session_state.selected_model = "Gemini 3.8 Flash"
 
     with tb_c8:
         btn_run_ai = st.button("⚡ BẮT ĐẦU TRÍCH XUẤT", type="primary", use_container_width=True, key="tb_btn_run_ai")
