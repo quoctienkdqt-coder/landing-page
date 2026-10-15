@@ -221,268 +221,152 @@ st.markdown("""
         gap: 5px;
     }
 
-    /* HERO SECTION TRANG CHỦ (CHUẨN EZY CLOUDX HERO) */
-    .hero-center-box {
-        text-align: center;
-        padding: 28px 16px 20px 16px;
-        max-width: 960px;
-        margin: 0 auto;
-    }
-    .hero-pill-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: #E0F2FE;
-        color: #0284C7;
-        padding: 6px 18px;
-        border-radius: 999px;
-        font-size: 12px;
-        font-weight: 700;
-        margin-bottom: 16px;
-    }
-    .hero-title-giant {
-        font-size: 48px;
-        font-weight: 900;
-        color: #0F172A;
-        line-height: 1.15;
-        letter-spacing: -1.5px;
-        margin-bottom: 14px;
-    }
-    .hero-title-giant span.blue-highlight {
-        color: #0284C7;
-        display: block;
-        margin-top: 4px;
-    }
-    .hero-subtitle-desc {
-        font-size: 14.5px;
-        color: #475569;
-        line-height: 1.65;
-        max-width: 800px;
-        margin: 0 auto 24px auto;
-    }
-
-    /* BANNER LƯU Ý QUAN TRỌNG (NHƯ BANNER UBUNTU TRONG HÌNH 2) */
-    .saas-warning-banner {
-        background: #FEF2F2;
-        border: 1px solid #FCA5A5;
-        border-radius: 8px;
-        padding: 12px 18px;
-        color: #991B1B;
-        font-size: 13px;
-        line-height: 1.55;
-        margin: 16px 0;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    /* CARD VÍ COMPUTING POINT / ĐIỂM AI (TRONG HÌNH 2) */
-    .wallet-balance-card {
-        background: #FFFFFF;
+    /* =========================================================================
+       DESKTOP 1:1 UI/UX STYLING (MÔ PHỎNG CHUẨN XÁC CUSTOMTKINTER DESKTOP)
+       ========================================================================= */
+    .dt-card {
+        background: #F8FAFC;
         border: 1px solid #E2E8F0;
-        border-radius: 12px;
-        padding: 18px 22px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
-    }
-    .wallet-left {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-    }
-    .wallet-icon {
-        width: 44px;
-        height: 44px;
         border-radius: 10px;
-        background: #EFF6FF;
-        color: #0284C7;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-    }
-    .wallet-info-title {
-        font-size: 12px;
-        color: #64748B;
-        font-weight: 600;
-        margin-bottom: 2px;
-    }
-    .wallet-info-val {
-        font-size: 26px;
-        font-weight: 900;
-        color: #0F172A;
-    }
-
-    /* CARD LỰA CHỌN NỀN TẢNG (WEB VS DESKTOP) */
-    .platform-choice-card {
-        background: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 14px;
-        padding: 24px 20px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transition: all 0.25s ease;
-        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02);
-    }
-    .platform-choice-card:hover {
-        border-color: #0284C7;
-        box-shadow: 0 8px 24px rgba(2, 132, 199, 0.08);
-        transform: translateY(-3px);
-    }
-    .platform-tag {
-        display: inline-block;
-        padding: 4px 10px;
-        border-radius: 6px;
-        font-size: 11px;
-        font-weight: 800;
-        text-transform: uppercase;
+        padding: 10px 14px;
         margin-bottom: 12px;
     }
-    .platform-tag-web { background: #E0F2FE; color: #0284C7; }
-    .platform-tag-desktop { background: #ECFDF5; color: #059669; }
-    .platform-title {
-        font-size: 17px;
-        font-weight: 800;
-        color: #0F172A;
-        margin-bottom: 8px;
-    }
-    .platform-desc {
-        font-size: 13px;
-        color: #475569;
-        line-height: 1.6;
-        margin-bottom: 16px;
-    }
-
-    /* CARD BẢNG GIÁ THEO DẠNG CARD GPU (HÌNH 2) */
-    .gpu-pricing-card {
-        background: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 12px;
-        padding: 18px 16px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transition: all 0.2s ease;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.02);
-    }
-    .gpu-pricing-card:hover {
-        border-color: #0284C7;
-        box-shadow: 0 6px 18px rgba(2, 132, 199, 0.09);
-        transform: translateY(-2px);
-    }
-    .gpu-card-header {
+    .dt-header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
         margin-bottom: 8px;
     }
-    .gpu-card-title {
-        font-size: 14.5px;
+    .dt-title {
+        font-size: 12px;
         font-weight: 800;
         color: #0F172A;
+        letter-spacing: -0.2px;
     }
-    .gpu-card-badge {
-        font-size: 10px;
-        font-weight: 800;
-        padding: 2px 7px;
-        border-radius: 10px;
-    }
-    .badge-slot-ok { background: #ECFDF5; color: #059669; }
-    .badge-slot-hot { background: #EFF6FF; color: #0284C7; }
-    .badge-slot-full { background: #FEE2E2; color: #DC2626; }
-    
-    .gpu-specs-line {
-        font-size: 12px;
+    .dt-subtitle {
+        font-size: 10.5px;
         color: #64748B;
-        margin-bottom: 10px;
-        line-height: 1.4;
+        margin-left: 8px;
     }
-    .gpu-tags-row {
-        display: flex;
-        gap: 6px;
-        margin-bottom: 14px;
-    }
-    .gpu-tag-chip {
+    .dt-selector-box {
         background: #F1F5F9;
-        color: #475569;
+        border: 1px solid #CBD5E1;
+        border-radius: 8px;
+        padding: 8px 12px;
+        margin-bottom: 10px;
+    }
+    .dt-label {
         font-size: 11px;
-        padding: 2px 7px;
-        border-radius: 4px;
-        font-weight: 600;
-    }
-    .gpu-price-box {
-        margin-bottom: 12px;
-    }
-    .gpu-price-main {
-        font-size: 24px;
-        font-weight: 900;
-        color: #0284C7;
-    }
-    .gpu-price-unit {
-        font-size: 12px;
-        font-weight: 600;
-        color: #64748B;
-    }
-    .gpu-price-discount {
-        background: #FEF3C7;
-        color: #B45309;
-        font-size: 11px;
-        font-weight: 800;
-        padding: 2px 6px;
-        border-radius: 4px;
-        margin-left: 6px;
-    }
-    .gpu-specs-table {
-        font-size: 11.5px;
+        font-weight: 700;
         color: #334155;
-        line-height: 1.7;
-        border-top: 1px solid #F1F5F9;
-        padding-top: 10px;
-        margin-bottom: 14px;
+        padding-top: 6px;
+        white-space: nowrap;
     }
 
-    /* STEPPER & PANELS */
+    /* ĐỊNH DẠNG TEXT INPUT NHỎ GỌN CHUẨN DESKTOP CTKENTRY */
+    div[data-testid="stTextInput"] input {
+        height: 32px !important;
+        min-height: 32px !important;
+        padding: 3px 10px !important;
+        border-radius: 6px !important;
+        border: 1px solid #CBD5E1 !important;
+        background-color: #FFFFFF !important;
+        color: #0F172A !important;
+        font-size: 11.5px !important;
+    }
+    div[data-testid="stTextInput"] input:focus {
+        border-color: #2563EB !important;
+        box-shadow: 0 0 0 1px #2563EB !important;
+    }
+
+    /* Ô NHẬP TỔNG KHỐI LƯỢNG NỔI BẬT VIỀN XANH ACCENT NHƯ HÌNH 2 */
+    div:has(> div input[aria-label="Tổng K.Lượng (kg):"]) input {
+        background-color: #EFF6FF !important;
+        border: 1px solid #93C5FD !important;
+        color: #1D4ED8 !important;
+        font-weight: 700 !important;
+        font-size: 12px !important;
+    }
+
+    /* STEPPER 3 BƯỚC */
     .stepper-box {
         display: flex;
         align-items: center;
         background: #FFFFFF;
         border: 1px solid #E2E8F0;
-        border-radius: 10px;
-        padding: 6px 14px;
-        margin-bottom: 12px;
+        border-radius: 8px;
+        padding: 5px 12px;
+        margin-bottom: 8px;
     }
     .step-item {
         flex: 1;
         text-align: center;
-        padding: 6px 10px;
-        border-radius: 8px;
-        font-size: 11.5px;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 11px;
         font-weight: 700;
     }
-    .step-active { background: #EFF6FF; border: 1px solid #93C5FD; color: #0284C7; }
+    .step-active { background: #EFF6FF; border: 1px solid #93C5FD; color: #1D4ED8; }
     .step-done { background: #ECFDF5; border: 1px solid #A7F3D0; color: #059669; }
     .step-idle { background: #F8FAFC; border: 1px solid #E2E8F0; color: #94A3B8; }
-    .step-sep { font-size: 13px; font-weight: bold; padding: 0 8px; }
+    .step-sep { font-size: 12px; font-weight: bold; padding: 0 8px; color: #CBD5E1; }
+
+    /* ACTION TOOLBAR TRẮNG VIỀN BO TRÒN */
+    .action-toolbar-box {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 8px;
+        padding: 6px 10px;
+        margin-bottom: 8px;
+    }
+
+    /* TABVIEW SEGMENTED BUTTONS CHUẨN CTKTABVIEW (HÌNH 2) */
+    div[data-baseweb="tab-list"] {
+        gap: 4px !important;
+        padding: 4px !important;
+        background-color: #F1F5F9 !important;
+        border-radius: 8px !important;
+        border: 1px solid #E2E8F0 !important;
+        margin-bottom: 10px !important;
+    }
+    button[data-baseweb="tab"] {
+        background-color: transparent !important;
+        border-radius: 6px !important;
+        padding: 6px 12px !important;
+        font-weight: 600 !important;
+        font-size: 11px !important;
+        color: #475569 !important;
+        border: none !important;
+        transition: all 0.15s ease !important;
+    }
+    button[data-baseweb="tab"]:hover {
+        background-color: #E2E8F0 !important;
+        color: #0F172A !important;
+    }
+    button[data-baseweb="tab"][aria-selected="true"] {
+        background-color: #2563EB !important;
+        color: #FFFFFF !important;
+        font-weight: 700 !important;
+        box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3) !important;
+    }
+    button[data-baseweb="tab"][aria-selected="true"] * {
+        color: #FFFFFF !important;
+    }
+    div[data-baseweb="tab-highlight"], div[data-baseweb="tab-border"] {
+        display: none !important;
+    }
 
     .content-panel {
         background: #FFFFFF;
         border: 1px solid #E2E8F0;
-        border-radius: 12px;
-        padding: 16px 18px;
-        margin-bottom: 14px;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.02);
+        border-radius: 10px;
+        padding: 12px 14px;
+        margin-bottom: 10px;
     }
     .panel-header {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 700;
         color: #0F172A;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -519,21 +403,6 @@ st.markdown("""
     .stat-val {
         font-size: 24px;
         font-weight: 800;
-    }
-
-    button[data-baseweb="tab"] {
-        background-color: #F1F5F9 !important;
-        border-radius: 8px !important;
-        padding: 6px 14px !important;
-        margin-right: 4px !important;
-        font-weight: 600 !important;
-        font-size: 12px !important;
-        color: #475569 !important;
-        border: none !important;
-    }
-    button[data-baseweb="tab"][aria-selected="true"] {
-        background-color: #0284C7 !important;
-        color: #FFFFFF !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -987,17 +856,18 @@ loaded_db, total_db = get_vessel_db_status()
 db_badge_text = f"✓ CSDL: Sẵn sàng ({loaded_db}/{total_db})" if loaded_db == total_db else f"⏳ CSDL: Đang tải ({loaded_db}/{total_db})..."
 
 st.markdown(f"""
-<div class="saas-navbar">
-    <div class="saas-nav-brand">
-        <span style="font-size:20px;">🚢</span> 
-        <span style="font-weight:800;color:#0F172A;font-size:16px;">MẪU 22 KT PRO</span>
+<div class="saas-navbar" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:8px 16px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:6px;">
+        <span style="font-size:16px;color:#475569;margin-right:2px;cursor:pointer;">☰</span>
+        <span style="font-size:18px;">🚢</span> 
+        <span style="font-weight:900;color:#0F172A;font-size:15px;letter-spacing:-0.4px;">MẪU 22 KT PRO</span>
         <span style="color:#94A3B8;font-size:14px;font-weight:600;margin:0 6px;">/</span>
         <span style="color:#2563EB;font-size:14px;font-weight:700;">{active_title}</span>
     </div>
-    <div class="saas-nav-actions" style="display:flex;align-items:center;gap:8px;">
-        <div style="background:#EFF6FF;color:#1D4ED8;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:14px;border:1px solid #BFDBFE;">⚡ Lõi AI: Sẵn Sàng</div>
-        <div style="background:#ECFDF5;color:#059669;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:14px;border:1px solid #A7F3D0;">👑 Gói PRO LICENSE</div>
-        <div style="background:#F8FAFC;color:#64748B;font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:14px;border:1px solid #E2E8F0;">{db_badge_text}</div>
+    <div style="display:flex;align-items:center;gap:8px;">
+        <div style="background:#DCFCE7;color:#15803D;font-size:11.5px;font-weight:700;padding:4px 12px;border-radius:12px;border:1px solid #86EFAC;">✓ CSDL: Đã nạp ({loaded_db}/{total_db})</div>
+        <div style="background:#DCFCE7;color:#15803D;font-size:11.5px;font-weight:700;padding:4px 12px;border-radius:12px;border:1px solid #86EFAC;">👑 Gói UNL</div>
+        <div style="background:#EFF6FF;color:#1D4ED8;font-size:11.5px;font-weight:700;padding:4px 12px;border-radius:12px;border:1px solid #BFDBFE;">⚡ Lõi AI: Sẵn Sàng</div>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -1179,85 +1049,109 @@ elif st.session_state.current_view == "workspace":
         </div>
         """, unsafe_allow_html=True)
 
-    # Top Control Bar trong Workspace
-    w_col1, w_col2, w_col3, w_col4, w_col5 = st.columns([2.0, 1.2, 1.4, 1.4, 2.0])
-    with w_col1:
-        # Chế độ trích xuất
-        m_opts = ["🏛️ LUỒNG 1: CHỨNG TỪ GỐC (EN)", "📋 LUỒNG 2: MẪU 22 CŨ (VN)"]
-        m_idx = 0 if st.session_state.workspace_mode == "LUONG_1" else 1
-        sel_mode = st.selectbox("Chế độ:", m_opts, index=m_idx, label_visibility="collapsed")
-        st.session_state.workspace_mode = "LUONG_1" if "LUỒNG 1" in sel_mode else "LUONG_2"
+    # 2. ACTION TOOLBAR HIỆN ĐẠI CHUẨN DESKTOP (BẢN SAO 1:1 HÌNH 2)
+    cur_data = st.session_state.current_extracted_data
 
-    with w_col2:
-        # Nút ẩn/hiện cột PDF song song
-        pdf_toggle_txt = "✕ Ẩn PDF" if st.session_state.show_doc_preview else "👁️ Mở PDF"
-        if st.button(pdf_toggle_txt, use_container_width=True, help="Bật / Tắt hiển thị trình xem tài liệu bên trái"):
+    st.markdown('<div class="action-toolbar-box">', unsafe_allow_html=True)
+    tb_c1, tb_c2, tb_c3, tb_c4, tb_c5, tb_c6, tb_c7, tb_c8 = st.columns([1.0, 2.0, 0.9, 1.1, 1.4, 1.4, 1.4, 1.8])
+
+    with tb_c1:
+        if st.button("← Trang chủ", use_container_width=True, key="tb_btn_home"):
+            st.session_state.current_view = "dashboard"
+            st.rerun()
+
+    with tb_c2:
+        m_opts = ["🏛️ CHỨNG TỪ GỐC (TIẾNG ANH)", "📋 SỐ HÓA MẪU 22 (TIẾNG VIỆT)"]
+        m_idx = 0 if st.session_state.workspace_mode == "LUONG_1" else 1
+        sel_mode = st.selectbox("Chế độ:", m_opts, index=m_idx, label_visibility="collapsed", key="tb_sel_mode")
+        st.session_state.workspace_mode = "LUONG_1" if "CHỨNG TỪ GỐC" in sel_mode else "LUONG_2"
+
+    with tb_c3:
+        st_toggle_txt = "▼ Mở rộng" if st.session_state.stepper_collapsed else "▲ Thu gọn"
+        if st.button(st_toggle_txt, use_container_width=True, key="tb_btn_collapse"):
+            st.session_state.stepper_collapsed = not st.session_state.stepper_collapsed
+            st.rerun()
+
+    with tb_c4:
+        with st.popover("📁 Chọn PDF", use_container_width=True):
+            st.markdown("<b>Chọn tệp chứng từ (PDF/Ảnh/JSON):</b>", unsafe_allow_html=True)
+            u_pop_files = st.file_uploader(
+                "Tải lên tệp chứng từ:",
+                type=["pdf", "png", "jpg", "jpeg", "json"],
+                accept_multiple_files=True,
+                key="file_uploader_popover",
+                label_visibility="collapsed"
+            )
+            if u_pop_files:
+                st.session_state._selected_uploaded_files = u_pop_files
+
+    with tb_c5:
+        pdf_toggle_txt = "✕ Ẩn PDF" if st.session_state.show_doc_preview else "👁️ Mở PDF song song"
+        if st.button(pdf_toggle_txt, use_container_width=True, key="tb_btn_pdf_toggle"):
             st.session_state.show_doc_preview = not st.session_state.show_doc_preview
             st.session_state.show_pdf = st.session_state.show_doc_preview
             st.rerun()
 
-    with w_col3:
-        # Nút thu gọn / mở rộng Stepper
-        st_toggle_txt = "▼ Mở Stepper" if st.session_state.stepper_collapsed else "▲ Thu gọn"
-        if st.button(st_toggle_txt, use_container_width=True, help="Thu gọn thanh tiến trình để tăng diện tích làm việc"):
-            st.session_state.stepper_collapsed = not st.session_state.stepper_collapsed
-            st.rerun()
+    uploaded_files = st.session_state.get("_selected_uploaded_files") or st.session_state.get("file_uploader_main") or []
 
-    with w_col4:
-        # Nạp Dữ Liệu Mẫu (F3.6)
-        if st.button("🚀 NẠP DỮ LIỆU MẪU", use_container_width=True, help="Nạp tức thì bộ hồ sơ mẫu chuẩn hải sản để trải nghiệm không tốn API"):
-            st.session_state.current_extracted_data = get_full_sample_dataset()
-            st.session_state.extracted_data = st.session_state.current_extracted_data
-            st.session_state.current_step = 3
-            st.session_state.step = 3
-            chk = RFMOChecker(base_dir=CURRENT_DIR)
-            rep, vr = chk.verify_ho_so(st.session_state.current_extracted_data)
-            st.session_state.rfmo_audit_results = {"ho_so_report": rep, "v_results": vr}
-            st.session_state.rfmo_results = st.session_state.rfmo_audit_results
-            st.success("✅ Đã nạp thành công bộ hồ sơ mẫu chuẩn Mẫu 22.KT!")
-            st.rerun()
-
-    with w_col5:
-        # Nút Bắt đầu trích xuất
-        btn_run_ai = st.button("⚡ BẮT ĐẦU TRÍCH XUẤT AI", type="primary", use_container_width=True)
-
-    # Khu vực Upload Tệp & Nạp Bản Nháp JSON
-    with st.expander("📂 NẠP BẢN NHÁP JSON ĐÃ LƯU (KHÔI PHỤC HỒ SƠ)", expanded=False):
-        uploaded_json = st.file_uploader(
-            "Chọn tệp JSON bản nháp đã xuất trước đó:",
-            type=["json"],
-            key="uploader_draft_json",
-            help="Tải lên tệp Draft_*.json để khôi phục toàn bộ 8 tab dữ liệu"
+    with tb_c6:
+        def_hs = os.path.splitext(uploaded_files[0].name)[0] if uploaded_files else cur_data.get("so_to_khai", "")
+        ma_hs_val = st.text_input(
+            "Mã HS:",
+            value=def_hs,
+            placeholder="Mã HS / Invoice...",
+            label_visibility="collapsed",
+            key="tb_ent_ma_hs"
         )
-        if uploaded_json is not None:
-            try:
-                draft_content = json.loads(uploaded_json.getvalue().decode("utf-8"))
-                if isinstance(draft_content, dict):
-                    st.session_state.current_extracted_data = draft_content
-                    st.session_state.extracted_data = draft_content
-                    st.session_state.current_step = 3
-                    st.session_state.step = 3
-                    if draft_content.get("tau_danh_bat"):
-                        chk = RFMOChecker(base_dir=CURRENT_DIR)
-                        rep, vr = chk.verify_ho_so(draft_content)
-                        st.session_state.rfmo_audit_results = {"ho_so_report": rep, "v_results": vr}
-                        st.session_state.rfmo_results = st.session_state.rfmo_audit_results
-                    st.success("✅ Đã khôi phục thành công toàn bộ hồ sơ từ bản nháp JSON!")
-                    st.rerun()
-                else:
-                    st.error("Tệp JSON không đúng cấu trúc hồ sơ hợp lệ.")
-            except Exception as err:
-                st.error(f"Lỗi khi đọc tệp JSON: {err}")
+        if ma_hs_val:
+            cur_data["so_to_khai"] = ma_hs_val
 
-    uploaded_files = st.file_uploader(
-        "Kéo thả hoặc chọn các file PDF chứng từ, Hóa đơn, Vận đơn, B/L, Giấy phép:",
-        type=["pdf", "png", "jpg", "jpeg", "json"],
-        accept_multiple_files=True,
-        key="file_uploader_dossier",
-        label_visibility="collapsed"
-    )
+    with tb_c7:
+        selected_model = st.selectbox(
+            "Lõi AI:",
+            ["Gemini 3.8 Flash", "Gemini 3.5 Flash", "gemini-3.1-pro-preview"],
+            index=0,
+            label_visibility="collapsed",
+            key="tb_cb_model"
+        )
+        st.session_state.selected_model = selected_model
 
-    # Tự động nạp nếu người dùng kéo thả file JSON vào uploader chính
+    with tb_c8:
+        btn_run_ai = st.button("⚡ BẮT ĐẦU TRÍCH XUẤT", type="primary", use_container_width=True, key="tb_btn_run_ai")
+
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Hiển thị số lượng tệp & liên kết nạp mẫu nhanh nếu chưa có file
+    f_count = len(uploaded_files) if uploaded_files else 0
+    f_status = f"✓ Đã chọn {f_count} tệp tài liệu." if f_count > 0 else "Chưa có file"
+    st.markdown(f'<div style="font-size:11px;color:#64748B;font-style:italic;margin-top:-4px;margin-bottom:8px;padding-left:4px;">{f_status} • <i>(Nhấp "📁 Chọn PDF" ở trên để nạp tệp, hoặc bấm "🚀 Nạp dữ liệu mẫu" bên dưới)</i></div>', unsafe_allow_html=True)
+
+    if not uploaded_files and not cur_data:
+        c_quick1, c_quick2 = st.columns([3.5, 1.2])
+        with c_quick1:
+            u_main = st.file_uploader(
+                "Kéo thả hoặc chọn các file PDF chứng từ, Hóa đơn, Vận đơn, B/L, Giấy phép:",
+                type=["pdf", "png", "jpg", "jpeg", "json"],
+                accept_multiple_files=True,
+                key="file_uploader_main",
+                label_visibility="collapsed"
+            )
+            if u_main:
+                st.session_state._selected_uploaded_files = u_main
+                st.rerun()
+        with c_quick2:
+            if st.button("🚀 NẠP DỮ LIỆU MẪU", use_container_width=True, key="btn_quick_sample"):
+                st.session_state.current_extracted_data = get_full_sample_dataset()
+                st.session_state.extracted_data = st.session_state.current_extracted_data
+                st.session_state.current_step = 3
+                st.session_state.step = 3
+                chk = RFMOChecker(base_dir=CURRENT_DIR)
+                rep, vr = chk.verify_ho_so(st.session_state.current_extracted_data)
+                st.session_state.rfmo_audit_results = {"ho_so_report": rep, "v_results": vr}
+                st.session_state.rfmo_results = st.session_state.rfmo_audit_results
+                st.rerun()
+
+    # Tự động nạp nếu người dùng chọn file JSON
     if uploaded_files:
         _j_files = [f for f in uploaded_files if f.name.lower().endswith(".json")]
         if _j_files and not btn_run_ai and not st.session_state.is_ai_running:
@@ -1519,49 +1413,168 @@ elif st.session_state.current_view == "workspace":
         ])
 
         # -------------------------------------------------------------
-        # TAB 1: THÔNG TIN CƠ SỞ & LÔ HÀNG BỐC DỠ
+        # TAB 1: THÔNG TIN CƠ SỞ (🏢 Thông tin cơ sở - BẢN SAO 1:1 DESKTOP)
         # -------------------------------------------------------------
         with tabs[0]:
-            st.markdown('<div class="content-panel">', unsafe_allow_html=True)
-            st.markdown('<div class="panel-header">🏢 THÔNG TIN PHÁP LÝ & CƠ SỞ NHẬP KHẨU</div>', unsafe_allow_html=True)
+            # ==========================================
+            # CARD 1: THÔNG TIN PHÁP LÝ & CƠ SỞ NHẬP KHẨU
+            # ==========================================
+            st.markdown("""
+            <div class="dt-card">
+                <div class="dt-header">
+                    <span class="dt-title">🏢 THÔNG TIN PHÁP LÝ & CƠ SỞ NHẬP KHẨU</span>
+                    <span class="dt-subtitle">• Đơn vị khai báo xác nhận cam kết Mẫu 22</span>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
             
-            # Chọn nhanh doanh nghiệp từ Excel
-            comp_names = ["-- Chọn doanh nghiệp từ danh mục --"] + list(companies_dict.keys())
-            sel_comp = st.selectbox("Chọn nhanh cơ sở DN từ CSDL:", comp_names, index=0, key="sb_company_lookup")
-            if sel_comp in companies_dict:
-                c_info = companies_dict[sel_comp]
-                cur_data["ten_co_so"] = c_info.get("ten_co_so", cur_data.get("ten_co_so", ""))
-                cur_data["nguoi_dai_dien"] = c_info.get("nguoi_dai_dien", cur_data.get("nguoi_dai_dien", ""))
-                cur_data["dia_chi"] = c_info.get("dia_chi", cur_data.get("dia_chi", ""))
-                cur_data["sdt"] = c_info.get("sdt", cur_data.get("sdt", ""))
-                cur_data["email"] = c_info.get("email", cur_data.get("email", ""))
+            # KHUNG CHỌN DOANH NGHIỆP TỪ DANH SÁCH EXCEL (Danh_sach_cong_ty.xlsx)
+            with st.container():
+                st.markdown('<div class="dt-selector-box">', unsafe_allow_html=True)
+                sel_col1, sel_col2, sel_col3 = st.columns([5.5, 1.5, 2.0])
+                with sel_col1:
+                    comp_names = ["-- Chọn doanh nghiệp từ danh mục --"] + list(companies_dict.keys())
+                    cur_ten = cur_data.get("ten_co_so", "")
+                    def_idx = 0
+                    if cur_ten in companies_dict:
+                        def_idx = comp_names.index(cur_ten)
+                    sel_comp = st.selectbox(
+                        "🏢 Chọn nhanh hồ sơ DN:",
+                        comp_names,
+                        index=def_idx,
+                        key="sb_company_lookup_tab1",
+                        label_visibility="collapsed"
+                    )
+                    if sel_comp in companies_dict and sel_comp != cur_data.get("_applied_company"):
+                        cur_data["_applied_company"] = sel_comp
+                        c_info = companies_dict[sel_comp]
+                        cur_data["ten_co_so"] = c_info.get("ten_co_so", "")
+                        cur_data["nguoi_dai_dien"] = c_info.get("nguoi_dai_dien", "")
+                        cur_data["dia_chi"] = c_info.get("dia_chi", "")
+                        cur_data["sdt"] = c_info.get("sdt", "")
+                        if c_info.get("kinh_gui"):
+                            cur_data["kinh_gui"] = c_info.get("kinh_gui")
+                        st.rerun()
 
-            c_f1, c_f2 = st.columns(2)
-            with c_f1:
-                cur_data["kinh_gui"] = st.text_input("Kính gửi (Cơ quan tiếp nhận):", value=cur_data.get("kinh_gui", "Chi cục Thủy sản"))
-                cur_data["ten_co_so"] = st.text_input("Tên cơ sở nhập khẩu/Importer:", value=cur_data.get("ten_co_so", ""))
-                cur_data["dia_chi"] = st.text_input("Địa chỉ trụ sở/Address:", value=cur_data.get("dia_chi", ""))
-                cur_data["nguoi_dai_dien"] = st.text_input("Người đại diện/Representative:", value=cur_data.get("nguoi_dai_dien", ""))
-            with c_f2:
-                cur_data["sdt"] = st.text_input("Số điện thoại/Tel:", value=cur_data.get("sdt", ""))
-                cur_data["email"] = st.text_input("Email liên hệ:", value=cur_data.get("email", ""))
-                cur_data["so_to_khai"] = st.text_input("Số tờ khai hải quan:", value=cur_data.get("so_to_khai", ""))
-                cur_data["ngay_to_khai"] = st.text_input("Ngày tờ khai hải quan:", value=cur_data.get("ngay_to_khai", ""))
+                with sel_col2:
+                    if st.button("🔄 Làm mới", use_container_width=True, key="btn_reload_companies"):
+                        companies_dict, _ = load_company_list()
+                        st.rerun()
 
-            st.markdown('<div class="panel-header" style="margin-top:14px;">⚓ KẾ HOẠCH BỐC DỠ & CHI TIẾT VẬN TẢI</div>', unsafe_allow_html=True)
-            c_f3, c_f4 = st.columns(2)
-            with c_f3:
-                cur_data["tong_san_luong"] = st.text_input("Tổng sản lượng bốc dỡ (kg):", value=str(cur_data.get("tong_san_luong") or cur_data.get("khoi_luong") or ""))
-                cur_data["thoi_gian_boc_do"] = st.text_input("Thời gian bốc dỡ (Offloading Time):", value=cur_data.get("thoi_gian_boc_do", ""))
-                cur_data["dia_diem_boc_do"] = st.text_input("Địa điểm bốc dỡ (Offloading Venue):", value=cur_data.get("dia_diem_boc_do", ""))
-            with c_f4:
-                cur_data["so_van_don"] = st.text_input("Số vận đơn (B/L):", value=cur_data.get("so_van_don", ""))
-                cur_data["cang_boc_hang"] = st.text_input("Cảng bốc hàng:", value=cur_data.get("cang_boc_hang", ""))
-                cur_data["cang_den"] = st.text_input("Cảng dỡ hàng / Cảng đến:", value=cur_data.get("cang_den", ""))
-                cur_data["ten_hang"] = st.text_input("Tên hàng hóa:", value=cur_data.get("ten_hang", ""))
-                cur_data["nuoc_xuat_khau"] = st.text_input("Nước xuất khẩu:", value=cur_data.get("nuoc_xuat_khau", ""))
+                with sel_col3:
+                    st.button("📁 Đổi file Excel...", use_container_width=True, key="btn_browse_excel_info", disabled=True, help="Tệp Danh_sach_cong_ty.xlsx")
 
-            st.markdown('</div>', unsafe_allow_html=True)
+                if cur_data.get("ten_co_so") and cur_data.get("ten_co_so") in companies_dict:
+                    st.markdown(f'<div style="color:#059669;font-size:11px;font-weight:600;margin-top:2px;">✓ Đang áp dụng hồ sơ: {cur_data.get("ten_co_so")}</div>', unsafe_allow_html=True)
+                else:
+                    st.markdown('<div style="color:#64748B;font-size:10px;margin-top:2px;">💡 Chọn doanh nghiệp để tự động điền các thông tin pháp lý bên dưới trước khi bắt đầu trích xuất. (Nguồn: Danh_sach_cong_ty.xlsx)</div>', unsafe_allow_html=True)
+                st.markdown('</div>', unsafe_allow_html=True)
+
+            # Các trường Card 1 dạng lưới 4 cột / 2 cột ngang chuẩn Desktop
+            r1_l, r1_v = st.columns([1.6, 8.4])
+            with r1_l:
+                st.markdown('<div class="dt-label">Kính gửi:</div>', unsafe_allow_html=True)
+            with r1_v:
+                cur_data["kinh_gui"] = st.text_input(
+                    "Kính gửi:",
+                    value=cur_data.get("kinh_gui", "Chi cục Thủy sản"),
+                    placeholder="Ví dụ: Chi cục Thủy sản tỉnh Kiên Giang / Cục Thủy sản...",
+                    label_visibility="collapsed",
+                    key="in_kinh_gui"
+                )
+
+            r2_l, r2_v = st.columns([1.6, 8.4])
+            with r2_l:
+                st.markdown('<div class="dt-label">Tên cơ sở / Cty:</div>', unsafe_allow_html=True)
+            with r2_v:
+                cur_data["ten_co_so"] = st.text_input(
+                    "Tên cơ sở / Cty:",
+                    value=cur_data.get("ten_co_so", ""),
+                    placeholder="Tên doanh nghiệp / cơ sở chế biến, nhập khẩu...",
+                    label_visibility="collapsed",
+                    key="in_ten_co_so"
+                )
+
+            r3_l, r3_v = st.columns([1.6, 8.4])
+            with r3_l:
+                st.markdown('<div class="dt-label">Địa chỉ trụ sở:</div>', unsafe_allow_html=True)
+            with r3_v:
+                cur_data["dia_chi"] = st.text_input(
+                    "Địa chỉ trụ sở:",
+                    value=cur_data.get("dia_chi", ""),
+                    placeholder="Địa chỉ theo đăng ký kinh doanh...",
+                    label_visibility="collapsed",
+                    key="in_dia_chi"
+                )
+
+            r4_l1, r4_v1, r4_l2, r4_v2 = st.columns([1.6, 3.4, 1.6, 3.4])
+            with r4_l1:
+                st.markdown('<div class="dt-label">Người đại diện:</div>', unsafe_allow_html=True)
+            with r4_v1:
+                cur_data["nguoi_dai_dien"] = st.text_input(
+                    "Người đại diện:",
+                    value=cur_data.get("nguoi_dai_dien", ""),
+                    placeholder="Họ và tên người đại diện pháp luật",
+                    label_visibility="collapsed",
+                    key="in_nguoi_dai_dien"
+                )
+            with r4_l2:
+                st.markdown('<div class="dt-label">Điện thoại / Email:</div>', unsafe_allow_html=True)
+            with r4_v2:
+                cur_data["sdt"] = st.text_input(
+                    "Điện thoại / Email:",
+                    value=cur_data.get("sdt", ""),
+                    placeholder="Số điện thoại / Email liên hệ",
+                    label_visibility="collapsed",
+                    key="in_sdt"
+                )
+
+            st.write("")
+            # ==========================================
+            # CARD 2: KẾ HOẠCH BỐC DỠ & SẢN LƯỢNG LÔ HÀNG
+            # ==========================================
+            st.markdown("""
+            <div class="dt-card">
+                <div class="dt-header">
+                    <span class="dt-title">⚓ KẾ HOẠCH BỐC DỠ & SẢN LƯỢNG LÔ HÀNG</span>
+                    <span class="dt-subtitle">• Sản lượng quy đổi và thông tin cảng bốc dỡ</span>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+            r5_l, r5_v = st.columns([1.6, 8.4])
+            with r5_l:
+                st.markdown('<div class="dt-label" style="color:#1D4ED8;font-weight:700;">Tổng K.Lượng (kg):</div>', unsafe_allow_html=True)
+            with r5_v:
+                cur_data["tong_san_luong"] = st.text_input(
+                    "Tổng K.Lượng (kg):",
+                    value=str(cur_data.get("tong_san_luong") or cur_data.get("khoi_luong") or ""),
+                    placeholder="Tổng khối lượng thực tế (kg)...",
+                    label_visibility="collapsed",
+                    key="in_tong_san_luong"
+                )
+
+            r6_l1, r6_v1, r6_l2, r6_v2 = st.columns([1.6, 3.4, 1.6, 3.4])
+            with r6_l1:
+                st.markdown('<div class="dt-label">Thời gian bốc dỡ:</div>', unsafe_allow_html=True)
+            with r6_v1:
+                cur_data["thoi_gian_boc_do"] = st.text_input(
+                    "Thời gian bốc dỡ:",
+                    value=cur_data.get("thoi_gian_boc_do", ""),
+                    placeholder="DD/MM/YYYY - DD/MM/YYYY",
+                    label_visibility="collapsed",
+                    key="in_thoi_gian_boc_do"
+                )
+            with r6_l2:
+                st.markdown('<div class="dt-label">Địa điểm bốc dỡ:</div>', unsafe_allow_html=True)
+            with r6_v2:
+                cur_data["dia_diem_boc_do"] = st.text_input(
+                    "Địa điểm bốc dỡ:",
+                    value=cur_data.get("dia_diem_boc_do", ""),
+                    placeholder="Tên cảng biển / Cảng cá tiếp nhận bốc dỡ...",
+                    label_visibility="collapsed",
+                    key="in_dia_diem_boc_do"
+                )
 
         # -------------------------------------------------------------
         # TAB 2: SẢN PHẨM (san_pham)
@@ -1872,14 +1885,14 @@ elif st.session_state.current_view == "workspace":
 
 
     # =========================================================================
-    # 5. THANH CÔNG CỤ TÁC VỤ ĐÁY (BOTTOM ACTION TOOLBAR)
+    # 5. THANH CÔNG CỤ TÁC VỤ ĐÁY (BOTTOM ACTION TOOLBAR BẢN SAO 1:1 HÌNH 2)
     # =========================================================================
     st.markdown("---")
-    b_col1, b_col2, b_col3, b_col4, b_col5, b_col6 = st.columns(6)
+    b_col1, b_col2, b_col3, b_col_sp, b_col4, b_col5, b_col6 = st.columns([1.4, 2.0, 1.8, 0.4, 1.4, 1.5, 1.6])
 
-    # 1. LƯU CSDL
+    # [TRÁI 1] LƯU CSDL (Green)
     with b_col1:
-        if st.button("💾 LƯU CSDL", use_container_width=True, help="Lưu hồ sơ vào cơ sở dữ liệu SQLite cục bộ"):
+        if st.button("💾 LƯU CSDL", use_container_width=True, key="btn_bottom_save_db"):
             if cur_data:
                 res_id = db.save_ho_so(
                     ma_hs=cur_data.get("so_to_khai", f"HS_{int(time.time())}"),
@@ -1892,9 +1905,9 @@ elif st.session_state.current_view == "workspace":
             else:
                 st.warning("Chưa có dữ liệu để lưu.")
 
-    # 2. KIỂM TRA IUU & XUẤT
+    # [TRÁI 2] KIỂM TRA IUU & XUẤT (Orange)
     with b_col2:
-        if st.button("🔍 KIỂM TRA IUU & XUẤT", use_container_width=True, help="Thẩm định tàu cá qua CSDL IUU & RFMO"):
+        if st.button("🔍 KIỂM TRA IUU & XUẤT", use_container_width=True, key="btn_bottom_check_rfmo"):
             if cur_data.get("tau_danh_bat"):
                 with st.spinner("🌐 Đang kiểm tra IUU và RFMO Live..."):
                     chk = RFMOChecker(base_dir=CURRENT_DIR)
@@ -1907,13 +1920,51 @@ elif st.session_state.current_view == "workspace":
             else:
                 st.warning("Vui lòng nhập hoặc nạp thông tin tàu cá ở Tab 3!")
 
-    # 3. TRA CỨU RFMO LIVE (MODAL DIALOG)
+    # [TRÁI 3] TRA CỨU RFMO LIVE (Blue)
     with b_col3:
-        if st.button("🌐 TRA CỨU RFMO LIVE", use_container_width=True, help="Mở cửa sổ tra cứu trực tuyến các tổ chức nghề cá"):
+        if st.button("🌐 TRA CỨU RFMO LIVE", use_container_width=True, key="btn_bottom_live_rfmo"):
             show_live_rfmo_dialog()
 
-    # 4. XUẤT WORD (MẪU 22.KT)
+    # [PHẢI 1] MỞ BẢN NHÁP (Popover JSON khôi phục)
     with b_col4:
+        with st.popover("📂 Mở bản nháp", use_container_width=True):
+            st.markdown("<b>Khôi phục từ file JSON:</b>", unsafe_allow_html=True)
+            up_draft = st.file_uploader("Chọn file JSON:", type=["json"], key="up_draft_pop", label_visibility="collapsed")
+            if up_draft:
+                try:
+                    d_parsed = json.loads(up_draft.getvalue().decode("utf-8"))
+                    if isinstance(d_parsed, dict):
+                        st.session_state.current_extracted_data = d_parsed
+                        st.session_state.extracted_data = d_parsed
+                        st.session_state.current_step = 3
+                        st.session_state.step = 3
+                        if d_parsed.get("tau_danh_bat"):
+                            chk = RFMOChecker(base_dir=CURRENT_DIR)
+                            rep, vr = chk.verify_ho_so(d_parsed)
+                            st.session_state.rfmo_audit_results = {"ho_so_report": rep, "v_results": vr}
+                            st.session_state.rfmo_results = st.session_state.rfmo_audit_results
+                        st.success(f"✅ Đã nạp thành công từ {up_draft.name}!")
+                        st.rerun()
+                except Exception as _e:
+                    st.error(f"Lỗi: {_e}")
+
+    # [PHẢI 2] LƯU NHÁP JSON
+    with b_col5:
+        if cur_data:
+            json_str = json.dumps(cur_data, ensure_ascii=False, indent=2)
+            st.download_button(
+                label="📝 Lưu Nháp JSON",
+                data=json_str.encode("utf-8"),
+                file_name=f"Draft_{cur_data.get('so_to_khai', 'IUU')}.json",
+                mime="application/json",
+                use_container_width=True,
+                key="btn_bottom_export_json"
+            )
+        else:
+            st.button("📝 Lưu Nháp JSON", disabled=True, use_container_width=True, key="btn_bottom_export_json_dis")
+
+    # [PHẢI 3] XUẤT WORD (Primary Blue)
+    with b_col6:
         if cur_data:
             try:
                 bio = io.BytesIO()
@@ -1926,41 +1977,12 @@ elif st.session_state.current_view == "workspace":
                     mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                     type="primary",
                     use_container_width=True,
-                    help="Tải file Word Mẫu 22.KT hoàn chỉnh"
+                    key="btn_bottom_export_word"
                 )
             except Exception as e:
-                st.button(f"Lỗi Word: {e}", disabled=True, use_container_width=True)
+                st.button(f"Lỗi Word: {e}", disabled=True, use_container_width=True, key="btn_word_err")
         else:
-            st.button("📄 XUẤT WORD", disabled=True, use_container_width=True)
-
-    # 5. LƯU NHÁP JSON
-    with b_col5:
-        if cur_data:
-            json_str = json.dumps(cur_data, ensure_ascii=False, indent=2)
-            st.download_button(
-                label="📝 Lưu Nháp JSON",
-                data=json_str.encode("utf-8"),
-                file_name=f"Draft_{cur_data.get('so_to_khai', 'IUU')}.json",
-                mime="application/json",
-                use_container_width=True,
-                help="Lưu lại cấu trúc JSON để nhập lại sau này"
-            )
-        else:
-            st.button("📝 Lưu Nháp JSON", disabled=True, use_container_width=True)
-
-    # 6. NẠP DỮ LIỆU MẪU (TOOLBAR)
-    with b_col6:
-        if st.button("🚀 NẠP MẪU F3.6", use_container_width=True, help="Nạp tức thì bộ hồ sơ mẫu chuẩn nghiệp vụ"):
-            st.session_state.current_extracted_data = get_full_sample_dataset()
-            st.session_state.extracted_data = st.session_state.current_extracted_data
-            st.session_state.current_step = 3
-            st.session_state.step = 3
-            chk = RFMOChecker(base_dir=CURRENT_DIR)
-            rep, vr = chk.verify_ho_so(st.session_state.current_extracted_data)
-            st.session_state.rfmo_audit_results = {"ho_so_report": rep, "v_results": vr}
-            st.session_state.rfmo_results = st.session_state.rfmo_audit_results
-            st.success("✅ Đã nạp dữ liệu mẫu!")
-            st.rerun()
+            st.button("📄 XUẤT WORD", disabled=True, use_container_width=True, key="btn_bottom_export_word_dis")
 
 
 # =========================================================================
