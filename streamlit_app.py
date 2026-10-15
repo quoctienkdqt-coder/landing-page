@@ -1202,6 +1202,7 @@ elif st.session_state.current_view == "workspace":
                 t0 = time.time()
                 prompt_type = "chung_tu" if st.session_state.workspace_mode == "LUONG_1" else "mau22"
                 
+                active_api_key = st.session_state.get("gemini_api_key") or get_gemini_api_key()
                 with st.spinner("🤖 Lõi Google Gemini AI đang đọc và phân tích cấu trúc chứng từ..."):
                     res_data = AIService.extract_data(
                         file_paths=saved_paths,
