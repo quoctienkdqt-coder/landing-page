@@ -158,12 +158,19 @@ def load_config():
             return {}
     return {}
 
-def save_config(api_key="", license_key="", profile_data=None):
-    """Ghi config một cách an toàn"""
+def save_config(api_key="", license_key="", profile_data=None, **kwargs):
+    """Ghi config một cách an toàn, hỗ trợ nhận cả dict lẫn tham số riêng lẻ"""
     cfg = load_config()
-    if api_key: cfg["api_key"] = api_key
+    if isinstance(api_key, dict):
+        cfg.update(api_key)
+    elif api_key:
+        cfg["api_key"] = api_key
+        
     if license_key: cfg["license_key"] = license_key
     if profile_data is not None: cfg["profile"] = profile_data
+    for k, v in kwargs.items():
+        if v is not None:
+            cfg[k] = v
     
     try:
         with open(CONFIG_FILE, 'w', encoding='utf-8') as f: 

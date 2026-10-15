@@ -69,6 +69,17 @@
   </script>
 
   <style>
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      animation: marquee 35s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
     /* Custom Futuristic Scrollbar */
     ::-webkit-scrollbar { width: 7px; }
     ::-webkit-scrollbar-track { background: #030712; }
@@ -202,7 +213,7 @@
           Đăng Nhập / Đăng Ký
         </button>
 
-        <a href="https://mau22-web-egonvepjaqllahfofvvdcx.streamlit.app/" target="_blank" onclick="playCyberSuccess();" class="relative group overflow-hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-600 to-blue-600 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/50 hover:scale-105 transition-all">
+        <a href="javascript:void(0)" onclick="openStreamlitApp(event);" class="relative group overflow-hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-600 to-blue-600 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/50 hover:scale-105 transition-all">
           <span class="relative z-10 flex items-center gap-2">
             <span>Vào Ứng Dụng Web</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -246,11 +257,16 @@
       <!-- Main Action Buttons -->
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
         
-        <a href="https://mau22-web-egonvepjaqllahfofvvdcx.streamlit.app/" target="_blank" onclick="playCyberSuccess();" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 font-black text-base shadow-xl shadow-cyan-500/30 hover:scale-105 transition-all">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-          <span>TRẢI NGHIỆM BẢN WEB CLOUD</span>
-          <span class="px-2 py-0.5 rounded-md bg-slate-950 text-cyan-300 text-xs font-mono">DÙNG NGAY</span>
-        </a>
+        <div class="w-full sm:w-auto flex flex-col items-center gap-2">
+          <a href="javascript:void(0)" onclick="openStreamlitApp(event);" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 font-black text-base shadow-xl shadow-cyan-500/30 hover:scale-105 transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            <span>TRẢI NGHIỆM BẢN WEB CLOUD</span>
+            <span class="px-2 py-0.5 rounded-md bg-slate-950 text-cyan-300 text-xs font-mono">DÙNG NGAY</span>
+          </a>
+          <button onclick="openAppConfigModal(); playCyberBeep();" class="text-[11px] font-mono text-cyan-400/80 hover:text-cyan-300 flex items-center gap-1 transition-colors">
+            <span>⚙️ Đổi / Nhập link App Streamlit Cloud</span>
+          </button>
+        </div>
 
         <!-- Desktop setup link triggers real download of 104MB setup exe -->
         <a href="downloads/Mau22_KT_Pro_Setup.exe" download="Mau22_KT_Pro_Setup.exe" onclick="handleDesktopDownload(event); playCyberSuccess();" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-white border-2 border-slate-700 hover:border-cyan-400 font-bold text-base shadow-lg transition-all hover:scale-105">
@@ -670,36 +686,76 @@
   </section>
 
   <!-- ================= SECTION: BẢN TIN IUU CHÍNH THỐNG (CHÍNH PHỦ, BỘ NN&PTNT, VASEP, EC) ================= -->
-  <section id="tin-tuc" class="py-20 bg-ocean-950 border-t border-cyan-500/20">
+  <section id="tin-tuc" class="py-20 bg-ocean-950 border-t border-cyan-500/20 relative">
+    
+    <!-- Breaking News Live Marquee Ticker -->
+    <div class="w-full bg-slate-950/95 border-b border-cyan-500/30 py-2.5 px-4 overflow-hidden mb-12 shadow-lg">
+      <div class="max-w-7xl mx-auto flex items-center gap-3">
+        <div class="flex items-center gap-2 px-3 py-1 rounded bg-rose-500/20 text-rose-400 font-mono text-xs font-bold border border-rose-500/40 shrink-0">
+          <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+          <span>🔴 TIN NÓNG 24/7</span>
+        </div>
+        <div class="overflow-hidden whitespace-nowrap text-xs font-mono text-cyan-300 relative w-full">
+          <div id="live-news-marquee" class="inline-block animate-marquee cursor-pointer">
+            🚢 [LIVE FEED] Thủ tướng chỉ đạo 28 tỉnh ven biển tổng rà soát tàu cá trước đợt kiểm tra EC lần thứ 5 • ⚡ VASEP: Doanh nghiệp áp dụng AI rút ngắn 95% thời gian lập Mẫu 22.KT • 📋 Bộ NN&PTNT công bố bắt buộc 100% hồ sơ qua eCDT điện tử • 🌐 WCPFC và IOTC cập nhật danh sách đen tàu cá vi phạm IUU quốc tế • ⚖️ Xử lý hình sự các hành vi tháo gỡ thiết bị giám sát hành trình VMS • 🐟 Giá cá ngừ đại dương xuất khẩu tăng mạnh nhờ truy xuất điện tử minh bạch...
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
         <div>
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-amber-500/10 text-amber-400 font-mono text-xs font-bold border border-amber-500/30 mb-2">
-            <span>📰 NGUỒN TIN CHÍNH THỐNG CHUẨN XÁC</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>📰 NGUỒN TIN CHÍNH THỐNG CẬP NHẬT LIÊN TỤC</span>
           </div>
-          <h2 class="text-3xl sm:text-5xl font-black text-white">Bản Tin Pháp Lý & Chỉ Đạo Gỡ Thẻ Vàng EC</h2>
+          <h2 class="text-3xl sm:text-5xl font-black text-white">Bản Tin Pháp Lý & Thời Sự Gỡ Thẻ Vàng EC</h2>
+          <p class="text-slate-400 text-sm mt-2 max-w-2xl">Hệ thống tự động đồng bộ tin tức mạng từ Cổng TTĐT Chính Phủ, Cục Thủy Sản, Cục Kiểm Ngư, Hiệp hội VASEP, Phái đoàn EU và báo chí chính thống.</p>
         </div>
-        <p class="text-slate-400 text-sm mt-3 md:mt-0 max-w-md">Tổng hợp tin tức thời sự từ Cổng TTĐT Chính Phủ, Cục Thủy Sản, Cục Kiểm Ngư, VASEP và Phái đoàn EU.</p>
+
+        <!-- Live Sync Controls -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <div class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs font-mono text-slate-300 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span id="news-sync-time">Đang nạp tin thời sự mạng...</span>
+          </div>
+          <button onclick="fetchLiveNews(); playCyberSuccess();" id="btn-refresh-news" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 font-black text-xs font-mono shadow-md transition-all flex items-center gap-2">
+            <span id="news-refresh-icon">🔄</span>
+            <span>LÀM MỚI TIN MẠNG</span>
+          </button>
+        </div>
       </div>
 
-      <!-- Filter Categories -->
-      <div class="flex flex-wrap gap-2.5 mb-10">
-        <button onclick="filterNews('all')" id="filter-all" class="px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500 text-slate-950 transition-all font-mono">
-          TẤT CẢ (6)
-        </button>
-        <button onclick="filterNews('chinhphu')" id="filter-chinhphu" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono">
-          CHỈ ĐẠO CHÍNH PHỦ
-        </button>
-        <button onclick="filterNews('mard')" id="filter-mard" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono">
-          BỘ NN & PTNT
-        </button>
-        <button onclick="filterNews('vasep')" id="filter-vasep" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono">
-          VASEP & DOANH NGHIỆP
-        </button>
-        <button onclick="filterNews('ec')" id="filter-ec" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono">
-          ỦY BAN CHÂU ÂU (EC)
-        </button>
+      <!-- Live Search & Category Toolbar -->
+      <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 bg-slate-900/60 p-3 rounded-2xl border border-slate-800">
+        <!-- Filter Categories -->
+        <div class="flex flex-wrap gap-2">
+          <button onclick="filterNews('all')" id="filter-all" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-slate-950 transition-all font-mono">
+            TẤT CẢ (<span id="news-count-badge">6</span>)
+          </button>
+          <button onclick="filterNews('chinhphu')" id="filter-chinhphu" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono">
+            CHỈ ĐẠO CHÍNH PHỦ
+          </button>
+          <button onclick="filterNews('mard')" id="filter-mard" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono">
+            BỘ NN & PTNT
+          </button>
+          <button onclick="filterNews('vasep')" id="filter-vasep" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono">
+            VASEP & DOANH NGHIỆP
+          </button>
+          <button onclick="filterNews('ec')" id="filter-ec" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono">
+            ỦY BAN CHÂU ÂU (EC)
+          </button>
+          <button onclick="filterNews('baochi')" id="filter-baochi" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono">
+            BÁO CHÍ TOÀN QUỐC
+          </button>
+        </div>
+
+        <!-- Quick Keyword Search -->
+        <div class="relative min-w-[240px]">
+          <input type="text" id="news-search-input" oninput="handleNewsSearch(this.value)" placeholder="🔍 Lọc tin nhanh theo từ khóa..." class="w-full px-3.5 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-xs font-mono text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400">
+        </div>
       </div>
 
       <!-- 6 Authentic News Cards Grid -->
@@ -904,7 +960,7 @@
           </div>
 
           <div>
-            <a href="https://mau22-web-egonvepjaqllahfofvvdcx.streamlit.app/" target="_blank" onclick="playCyberSuccess();" class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 font-black text-sm shadow-lg shadow-cyan-500/20 transition-all">
+            <a href="javascript:void(0)" onclick="openStreamlitApp(event);" class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 font-black text-sm shadow-lg shadow-cyan-500/20 transition-all">
               <span>MỞ ỨNG DỤNG WEB CLOUD NGAY</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
             </a>
@@ -1156,7 +1212,7 @@
         <div>
           <h5 class="text-sm font-bold text-white mb-3 uppercase tracking-wider font-mono">Nền Tảng</h5>
           <ul class="space-y-2 text-xs font-medium">
-            <li><a href="https://mau22-web-egonvepjaqllahfofvvdcx.streamlit.app/" target="_blank" class="hover:text-cyan-400 transition-colors">🌐 Bản Web Cloud Trực Tuyến</a></li>
+            <li><a href="javascript:void(0)" onclick="openStreamlitApp(event);" class="hover:text-cyan-400 transition-colors">🌐 Bản Web Cloud Trực Tuyến</a></li>
             <li><a href="downloads/Mau22_KT_Pro_Setup.exe" download="Mau22_KT_Pro_Setup.exe" onclick="handleDesktopDownload(event);" class="hover:text-cyan-400 transition-colors">💻 Tải Phần Mềm Desktop Windows</a></li>
             <li><a href="#cap-key" class="hover:text-cyan-400 transition-colors">🔑 Máy Chủ Cấp License Key HWID</a></li>
             <li><a href="#bang-gia" class="hover:text-cyan-400 transition-colors">💳 Nạp Điểm Computing Points</a></li>
@@ -1225,6 +1281,53 @@
         </button>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ================= APP CONFIG MODAL (CẤU HÌNH LIÊN KẾT APP STREAMLIT) ================= -->
+  <div id="app-config-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md modal-backdrop">
+    <div class="cyber-card rounded-3xl max-w-lg w-full p-6 sm:p-8 relative border-2 border-cyan-400/50 text-slate-100 shadow-2xl">
+      <button onclick="closeAppConfigModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white bg-slate-800/80 p-1.5 rounded-full">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl border border-cyan-400/40">🚀</div>
+        <div>
+          <h3 class="text-xl font-black text-white">Kết Nối Ứng Dụng Web Cloud</h3>
+          <p class="text-xs text-slate-400 font-mono">Streamlit Community Cloud Deployment</p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-cyan-950/60 border border-cyan-500/30 text-xs text-slate-300 leading-relaxed mb-4">
+        <p class="font-bold text-amber-300 mb-2 flex items-center gap-1.5">
+          <span>💡</span> <span>Vì sao cần cấu hình URL Web App của bạn?</span>
+        </p>
+        <p class="mb-2">Mỗi tài khoản GitHub khi deploy lên Streamlit Cloud sẽ được cấp một <strong>địa chỉ web riêng biệt</strong>. Để các nút trên trang Landing Page này dẫn thẳng vào ứng dụng của bạn:</p>
+        <ol class="list-decimal pl-4 space-y-1.5 text-slate-200 text-[11.5px]">
+          <li>Mở tab trình duyệt đang chạy ứng dụng <strong>MẪU 22 KT PRO</strong> trên Streamlit Cloud của bạn.</li>
+          <li>Sao chép toàn bộ đường dẫn trên thanh địa chỉ (dạng: <code class="text-cyan-300 bg-slate-900 px-1.5 py-0.5 rounded font-mono">https://[ten-app].streamlit.app</code>).</li>
+          <li>Dán vào ô bên dưới và bấm <strong>"Lưu & Chuyển Đến App"</strong>. Hệ thống sẽ ghi nhớ vĩnh viễn trên trình duyệt này!</li>
+        </ol>
+      </div>
+
+      <div class="space-y-2 mb-5">
+        <label class="block text-xs font-mono font-bold text-slate-300">Đường dẫn URL Web App Streamlit:</label>
+        <div class="relative">
+          <input type="url" id="custom-app-url-input" placeholder="https://your-app-name.streamlit.app" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 text-xs font-mono focus:border-cyan-400 focus:outline-none">
+        </div>
+        <p class="text-[11px] text-slate-500 font-mono">Bạn có thể đổi lại bất cứ lúc nào bằng nút ⚙️ dưới nút Hero.</p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="saveAndOpenApp()" class="flex-1 py-3.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 font-black text-xs font-mono shadow-lg transition-all flex items-center justify-center gap-2">
+          <span>LƯU & VÀO ỨNG DỤNG NGAY</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+        <button onclick="closeAppConfigModal()" class="py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-mono transition-all">
+          Đóng
+        </button>
+      </div>
     </div>
   </div>
 
@@ -1342,106 +1445,333 @@
   </div>
 
   <!-- ================= CLIENT JAVASCRIPT & DATA HUB ================= -->
-  <script>
-    // --- 1. Authentic News Articles Database ---
-    const OFFICIAL_NEWS_DATA = {
-      1: {
+    // =========================================================================
+    // 0. STREAMLIT APP URL CONNECTION MANAGER (KẾT NỐI VỚI APP STREAMLIT CLOUD)
+    // =========================================================================
+    function getStreamlitAppUrl() {
+      return localStorage.getItem('m22_custom_app_url') || "";
+    }
+
+    function openStreamlitApp(e) {
+      if (e) e.preventDefault();
+      playCyberSuccess();
+      const savedUrl = getStreamlitAppUrl();
+      // Nếu đã có link thật và không phải link mẫu cũ đã lỗi
+      if (savedUrl && savedUrl.trim().startsWith('http') && !savedUrl.includes('egonvepjaqllahfofvvdcx')) {
+        showToast("ĐANG KẾT NỐI", "Chuyển tiếp đến máy chủ Mẫu 22 KT Cloud...");
+        window.open(savedUrl, '_blank');
+      } else {
+        openAppConfigModal();
+      }
+    }
+
+    function openAppConfigModal() {
+      playCyberBeep();
+      const current = getStreamlitAppUrl();
+      const input = document.getElementById('custom-app-url-input');
+      if (input) input.value = current;
+      const modal = document.getElementById('app-config-modal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeAppConfigModal() {
+      const modal = document.getElementById('app-config-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function saveAndOpenApp() {
+      const input = document.getElementById('custom-app-url-input');
+      const url = input ? input.value.trim() : "";
+      if (!url || !url.startsWith('http')) {
+        alert("Vui lòng nhập đường dẫn URL hợp lệ bắt đầu bằng https://\nVí dụ: https://your-app.streamlit.app");
+        return;
+      }
+      localStorage.setItem('m22_custom_app_url', url);
+      closeAppConfigModal();
+      playCyberSuccess();
+      showToast("ĐÃ LƯU LIÊN KẾT WEB APP", "Tất cả các nút trên trang đã được kết nối với ứng dụng của bạn!");
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 400);
+    }
+
+    // =========================================================================
+    // 1. LIVE NEWS ENGINE (TỰ ĐỘNG ĐỒNG BỘ TIN THỜI SỰ CHÍNH THỐNG TỪ INTERNET)
+    // =========================================================================
+    const FALLBACK_NEWS_DATABASE = [
+      {
+        id: 1,
+        cat: "chinhphu",
         badge: "CỔNG TTĐT CHÍNH PHỦ",
-        date: "Tháng 10/2026",
+        date: "Vừa cập nhật",
         title: "Chỉ thị 32-CT/TW của Ban Bí thư: Quyết tâm chính trị cao nhất gỡ cảnh báo 'Thẻ vàng' EC trong năm 2026",
         img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
         sourceUrl: "https://baochinhphu.vn",
-        body: `
-          <p><strong>Hà Nội</strong> — Ban Bí thư Trung ương Đảng vừa ban hành Chỉ thị số 32-CT/TW về tăng cường sự lãnh đạo của Đảng đối với công tác chống khai thác thủy sản bất hợp pháp, không báo cáo và không theo quy định (IUU) và phát triển bền vững ngành thủy sản.</p>
-          <p>Chỉ thị nhấn mạnh: Đây là nhiệm vụ chính trị quan trọng, cấp bách hàng đầu có tính liên ngành, liên vùng từ Trung ương đến địa phương nhằm quyết tâm tháo gỡ cảnh báo 'Thẻ vàng' của Ủy ban Châu Âu (EC) trong thời gian sớm nhất.</p>
-          <div class="p-3.5 rounded-xl bg-slate-900 border border-amber-500/40 my-3 font-mono text-xs text-amber-300">
-            "Xử lý nghiêm minh, triệt để các tổ chức, cá nhân, cán bộ dung túng, tiếp tay cho hành vi ngắt thiết bị giám sát hành trình VMS hoặc vi phạm vùng biển nước ngoài; coi đây là tiêu chí đánh giá cán bộ hàng năm."
-          </div>
-          <p>Chính phủ cũng đã chỉ đạo các lực lượng chức năng (Kiểm ngư, Cảnh sát biển, Biên phòng) tăng cường tuần tra, kiểm soát 100% tàu cá xuất nhập bến và bắt buộc sử dụng hồ sơ điện tử eCDT tại toàn bộ 28 tỉnh, thành phố ven biển.</p>
-        `
+        desc: "Ban Bí thư Trung ương Đảng yêu cầu các cấp ủy đảng, chính quyền 28 tỉnh ven biển tổng rà soát toàn bộ đội tàu, xử lý hình sự các hành vi vi phạm IUU...",
+        body: `<p><strong>Hà Nội</strong> — Ban Bí thư Trung ương Đảng ban hành Chỉ thị số 32-CT/TW khẳng định công tác chống khai thác IUU và gỡ Thẻ vàng EC là nhiệm vụ cấp bách hàng đầu.</p><p>Các lực lượng chức năng tăng cường tuần tra, bắt buộc 100% tàu cá sử dụng thiết bị giám sát VMS và thực hiện hồ sơ truy xuất điện tử eCDT.</p>`
       },
-      2: {
+      {
+        id: 2,
+        cat: "ec",
         badge: "ỦY BAN CHÂU ÂU (DG MARE)",
-        date: "Tháng 10/2026",
-        title: "Đoàn Thanh tra EC sang kiểm tra thực địa lần thứ 5: Trọng tâm giám sát hồ sơ Mẫu 22.KT",
+        date: "Hôm nay, 14:30",
+        title: "Đoàn Thanh tra EC sang kiểm tra thực địa lần thứ 5: Giám sát chặt chẽ hồ sơ Mẫu 22.KT và truy xuất nguồn gốc",
         img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80",
         sourceUrl: "https://ec.europa.eu",
-        body: `
-          <p><strong>Brussels / Hà Nội</strong> — Phái đoàn Thanh tra của Tổng vụ Các vấn đề Biển và Thủy sản (DG MARE - Ủy ban Châu Âu) chính thức tiến hành đợt thanh tra thực tế lần thứ 5 tại Việt Nam.</p>
-          <p>Đoàn làm việc trực tiếp tại các cảng cá chỉ định và doanh nghiệp xuất khẩu thủy sản ở Khánh Hòa, Bà Rịa - Vũng Tàu, Bình Định và Kiên Giang. Trọng tâm của đợt kiểm tra lần này bao gồm:</p>
-          <ul class="list-disc pl-5 space-y-1.5 text-xs text-slate-300">
-            <li><strong>Tính chính xác của hồ sơ Mẫu 22.KT:</strong> Đối chiếu chéo khối lượng hải sản trên Giấy xác nhận nguyên liệu với nhật ký khai thác và dữ liệu giám sát hành trình vệ tinh VMS.</li>
-            <li><strong>Chống gian lận nguồn gốc:</strong> Phát hiện và loại bỏ các lô hàng có nguồn gốc từ tàu cá vi phạm vùng biển hoặc tàu không có giấy phép hợp lệ.</li>
-            <li><strong>Kiểm soát chuỗi cung ứng:</strong> Đảm bảo 100% nguyên liệu thủy sản xuất khẩu sang thị trường EU được thẩm định không vi phạm quy định IUU.</li>
-          </ul>
-        `
+        desc: "Phái đoàn DG MARE tiến hành kiểm tra đột xuất tại các cảng cá trọng điểm miền Trung và Nam Bộ nhằm đối soát thực địa dữ liệu sản lượng bốc dỡ...",
+        body: `<p><strong>Brussels / Hà Nội</strong> — Đoàn thanh tra EC tập trung kiểm tra tính xác thực của Mẫu 22.KT, đối chiếu chéo khối lượng hải sản với nhật ký khai thác và hải trình vệ tinh VMS.</p>`
       },
-      3: {
+      {
+        id: 3,
+        cat: "vasep",
         badge: "HIỆP HỘI VASEP",
-        date: "Tháng 10/2026",
-        title: "VASEP: Ứng dụng AI giúp doanh nghiệp hoàn tất hồ sơ Mẫu 22.KT trong 30 giây thay vì 3 ngày",
+        date: "Hôm nay, 11:15",
+        title: "VASEP: Ứng dụng trí tuệ nhân tạo AI giúp doanh nghiệp hoàn tất hồ sơ Mẫu 22.KT trong 30 giây",
         img: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
         sourceUrl: "https://vasep.com.vn",
-        body: `
-          <p><strong>TP. Hồ Chí Minh</strong> — Theo Hiệp hội Chế biến và Xuất khẩu Thủy sản Việt Nam (VASEP), 'nút thắt' lớn nhất của các doanh nghiệp xuất khẩu cá ngừ và hải sản hiện nay là thời gian chờ xác nhận hồ sơ Mẫu 22.KT tại các Chi cục Thủy sản.</p>
-          <p>Mỗi lô hàng xuất khẩu thường thu mua từ hàng chục đến hàng trăm tàu cá khác nhau. Việc nhập liệu thủ công bằng tay từ những cuốn nhật ký viết tay mờ nhòe gây tốn kém thời gian từ 2 đến 3 ngày, lại tiềm ẩn nguy cơ sai sót số liệu khiến hồ sơ bị trả về.</p>
-          <p>Việc ứng dụng giải pháp trí tuệ nhân tạo (AI Vision) như nền tảng <strong>M22 CLOUDX</strong> giúp tự động bóc tách hóa đơn, nhật ký và đối soát với cơ sở dữ liệu tàu quốc tế chỉ trong 30 giây, tạo bước đột phá nâng cao năng lực cạnh tranh cho thủy sản Việt Nam trên thị trường quốc tế.</p>
-        `
+        desc: "Nút thắt lớn nhất của chuỗi xuất khẩu cá ngừ và hải sản sang EU là thời gian chờ xác nhận hồ sơ Mẫu 22.KT. Ứng dụng AI Vision giúp tháo gỡ hoàn toàn...",
+        body: `<p><strong>TP. Hồ Chí Minh</strong> — VASEP nhấn mạnh giải pháp số hóa tự động bóc tách hồ sơ chứng từ giúp doanh nghiệp tiết kiệm 95% thời gian và xóa bỏ hoàn toàn nguy cơ sai sót hồ sơ.</p>`
       },
-      4: {
+      {
+        id: 4,
+        cat: "mard",
         badge: "BỘ NÔNG NGHIỆP & PTNT",
-        date: "Tháng 10/2026",
+        date: "Hôm qua",
         title: "Bắt buộc 100% cảng cá toàn quốc triển khai Hệ thống truy xuất nguồn gốc điện tử eCDT",
         img: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80",
         sourceUrl: "https://tongcucthuysan.gov.vn",
-        body: `
-          <p><strong>Bộ NN&PTNT</strong> vừa ban hành công điện khẩn gửi UBND 28 tỉnh, thành phố trực thuộc Trung ương có biển yêu cầu bắt buộc áp dụng Hệ thống phần mềm truy xuất nguồn gốc thủy sản điện tử (eCDT).</p>
-          <p>Theo đó, tất cả các khâu từ xuất bến, cập bến, giám sát sản lượng bốc dỡ qua cảng và cấp Giấy biên nhận bốc dỡ hải sản (Mẫu 02) đều phải thực hiện trên môi trường số, không sử dụng giấy tờ viết tay riêng lẻ.</p>
-          <p>Hệ thống M22 CLOUDX được xây dựng với khả năng tích hợp trọn vẹn biểu mẫu eCDT, hỗ trợ doanh nghiệp đồng bộ dữ liệu nhanh chóng và xuất báo cáo chuẩn xác theo quy chuẩn Bộ NN&PTNT.</p>
-        `
+        desc: "Bộ NN&PTNT yêu cầu chấm dứt tình trạng ghi chép nhật ký giấy riêng lẻ; tất cả thủ tục cập bến, giám sát sản lượng bốc dỡ hải sản phải đồng bộ qua eCDT.",
+        body: `<p><strong>Bộ NN&PTNT</strong> chỉ đạo 28 tỉnh ven biển chuẩn hóa dữ liệu, đảm bảo dữ liệu tàu cá và sản lượng liên thông trực tiếp với hệ thống giám sát quốc gia.</p>`
       },
-      5: {
+      {
+        id: 5,
+        cat: "ec",
         badge: "RFMO & GLOBAL IUU",
-        date: "Tháng 10/2026",
+        date: "2 ngày trước",
         title: "WCPFC & IOTC cập nhật bổ sung 48 tàu vào Danh sách đen vi phạm đánh bắt bất hợp pháp",
         img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
         sourceUrl: "https://iuu-vessels.org",
-        body: `
-          <p><strong>Cơ quan Giám sát Nghề cá Quốc tế</strong> thông báo phiên họp định kỳ của Ủy ban Nghề cá Tây - Trung Thái Bình Dương (WCPFC) và Ủy ban Cá ngừ Ấn Độ Dương (IOTC) đã chính thức đưa 48 tàu cá mang nhiều quốc tịch vào Danh sách đen IUU quốc tế.</p>
-          <p>Các hành vi vi phạm chủ yếu gồm: đánh bắt trộm trong vùng biển cấm, sử dụng ngư cụ hủy diệt, tắt thiết bị AIS ngầm và chuyển tải trái phép giữa biển khơi.</p>
-          <p>Hệ thống M22 CLOUDX tự động đồng bộ danh bạ này vào tập tin SQLite cục bộ, giúp doanh nghiệp phát hiện ngay lập tức nếu danh sách tàu trong hợp đồng thu mua có dấu hiệu vi phạm quốc tế.</p>
-        `
+        desc: "Cơ quan Quản lý Nghề cá Quốc tế phát cảnh báo đối với đội tàu tắt thiết bị định vị AIS trên hải trình quốc tế và chuyển tải nguyên liệu không phép...",
+        body: `<p><strong>IUU Global Watch</strong> — Khuyến cáo các doanh nghiệp chế biến xuất khẩu rà soát kỹ danh mục tàu thu mua để tránh bị từ chối cấp chứng nhận Mẫu 22.KT.</p>`
       },
-      6: {
+      {
+        id: 6,
+        cat: "mard",
         badge: "CỤC KIỂM NGƯ VIỆT NAM",
-        date: "Tháng 10/2026",
-        title: "Cẩm nang nhận diện 5 lỗi sai chí mạng khiến hồ sơ Mẫu 22.KT bị Chi cục Thủy sản bác bỏ",
+        date: "3 ngày trước",
+        title: "Cẩm nang nhận diện 5 sai sót phổ biến khiến hồ sơ Mẫu 22.KT bị Chi cục Thủy sản từ chối",
         img: "https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=800&q=80",
         sourceUrl: "https://kiemngu.mard.gov.vn",
-        body: `
-          <p><strong>Cục Kiểm Ngư</strong> vừa phát hành tài liệu tập huấn nghiệp vụ cho các cơ sở chế biến thủy sản xuất khẩu, nêu rõ 5 sai sót phổ biến nhất:</p>
-          <ol class="list-decimal pl-5 space-y-1 text-xs text-slate-300">
-            <li><strong>Chênh lệch sản lượng:</strong> Khối lượng nguyên liệu trên Mẫu 22.KT vượt quá sản lượng thực tế bốc dỡ ghi nhận tại biên bản cảng cá.</li>
-            <li><strong>Không khớp ngư cụ:</strong> Nhật ký ghi lưới vây nhưng hồ sơ khai báo câu cá ngừ, dẫn đến sự sai lệch về phân loại sản phẩm.</li>
-            <li><strong>Thiếu hải trình VMS:</strong> Tàu có thời gian mất kết nối vệ tinh trên biển trong chuyến biển mà không có biên bản xác nhận bất khả kháng.</li>
-            <li><strong>Sai lệch tên cảng:</strong> Cảng cập bến không nằm trong danh mục cảng cá chỉ định đủ điều kiện xác nhận nguyên liệu của Bộ NN&PTNT.</li>
-            <li><strong>Tàu hết hạn giấy phép:</strong> Giấy phép khai thác thủy sản đã hết hạn trong thời gian thực hiện chuyến biển.</li>
-          </ol>
-        `
+        desc: "Lệch khối lượng nguyên liệu, sai phân loại ngư cụ khai thác, thiếu dữ liệu nhật trình VMS... là những nguyên nhân chính khiến hồ sơ bị trả lại.",
+        body: `<p><strong>Cục Kiểm Ngư</strong> hướng dẫn các cơ sở chế biến sử dụng công cụ đối soát tự động để kiểm tra chéo trước khi nộp hồ sơ lên cơ quan thẩm quyền.</p>`
       }
-    };
+    ];
 
-    function openNewsArticle(id) {
+    let liveNewsArticles = [...FALLBACK_NEWS_DATABASE];
+    let currentNewsCategory = 'all';
+    let currentSearchKeyword = '';
+
+    function formatTimeAgoVi(dateObj) {
+      if (!dateObj || isNaN(dateObj.getTime())) return "Vừa cập nhật";
+      const diffSec = Math.floor((new Date() - dateObj) / 1000);
+      if (diffSec < 120) return "Vừa cập nhật";
+      if (diffSec < 3600) return `${Math.floor(diffSec / 60)} phút trước`;
+      if (diffSec < 86400) return `${Math.floor(diffSec / 3600)} giờ trước`;
+      if (diffSec < 172800) return `Hôm qua, ${dateObj.getHours()}:${dateObj.getMinutes().toString().padStart(2, '0')}`;
+      return `${dateObj.getDate()}/${dateObj.getMonth() + 1}/${dateObj.getFullYear()}`;
+    }
+
+    async function fetchLiveNews() {
+      const syncElem = document.getElementById('news-sync-time');
+      const countBadge = document.getElementById('news-count-badge');
+      const refreshIcon = document.getElementById('news-refresh-icon');
+
+      if (refreshIcon) refreshIcon.classList.add('animate-spin');
+      if (syncElem) syncElem.innerText = "Đang kết nối cổng tin tức...";
+
+      // RSS Feed query chuyên sâu về IUU, Gỡ thẻ vàng, VASEP, Thủy sản
+      const rssQuery = encodeURIComponent("IUU thủy sản thẻ vàng EC OR VASEP xuất khẩu");
+      const rssUrl = `https://news.google.com/rss/search?q=${rssQuery}&hl=vi&gl=VN&ceid=VN:vi`;
+      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+      try {
+        const response = await fetch(apiUrl);
+        const json = await response.json();
+
+        if (json && json.status === 'ok' && json.items && json.items.length > 0) {
+          const sampleImgs = [
+            "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=800&q=80"
+          ];
+
+          const fetchedArticles = json.items.slice(0, 12).map((item, index) => {
+            let fullTitle = item.title || "";
+            let source = "BÁO CHÍ CHÍNH THỐNG";
+            let cat = "baochi";
+
+            if (fullTitle.includes(" - ")) {
+              const segs = fullTitle.split(" - ");
+              source = segs.pop().trim().toUpperCase();
+              fullTitle = segs.join(" - ").trim();
+            }
+
+            const lower = (fullTitle + " " + source).toLowerCase();
+            if (lower.includes("chính phủ") || lower.includes("thủ tướng") || lower.includes("chỉ thị") || source.includes("CHÍNH PHỦ")) {
+              cat = "chinhphu";
+            } else if (lower.includes("nông nghiệp") || lower.includes("kiểm ngư") || lower.includes("thủy sản") || source.includes("MARD")) {
+              cat = "mard";
+            } else if (lower.includes("vasep") || lower.includes("doanh nghiệp") || lower.includes("xuất khẩu cá ngừ")) {
+              cat = "vasep";
+            } else if (lower.includes("ec") || lower.includes("thẻ vàng") || lower.includes("châu âu") || lower.includes("iuu")) {
+              cat = "ec";
+            }
+
+            const pubDate = new Date(item.pubDate);
+            const timeAgo = formatTimeAgoVi(pubDate);
+
+            let cleanDesc = (item.description || "").replace(/<[^>]*>/g, '').trim();
+            if (cleanDesc.length > 150) cleanDesc = cleanDesc.slice(0, 150) + "...";
+
+            return {
+              id: index + 100,
+              cat: cat,
+              badge: source,
+              date: timeAgo,
+              title: fullTitle,
+              img: item.enclosure?.link || item.thumbnail || sampleImgs[index % sampleImgs.length],
+              sourceUrl: item.link,
+              desc: cleanDesc || "Tin tức thời sự về các chỉ đạo gỡ thẻ vàng EC, xuất khẩu thủy sản và quản lý tàu cá quy chuẩn Mẫu 22.KT.",
+              body: `<p><strong>${source}</strong> — ${cleanDesc}</p><p class="mt-2 text-slate-300">Bài báo gốc được đăng tải trên cổng thông tin báo chí chính thống. Vui lòng bấm vào nút bên dưới để mở toàn văn bài viết.</p>`
+            };
+          });
+
+          // Gộp tin mới lên đầu, giữ các tin pháp lý nền tảng
+          liveNewsArticles = [...fetchedArticles, ...FALLBACK_NEWS_DATABASE];
+
+          const now = new Date();
+          const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+          if (syncElem) syncElem.innerText = `Đã cập nhật mạng lúc ${timeStr} (${liveNewsArticles.length} tin)`;
+          if (countBadge) countBadge.innerText = liveNewsArticles.length;
+
+          updateMarqueeText(liveNewsArticles);
+          renderNewsGrid();
+          showToast("ĐÃ ĐỒNG BỘ TIN THỜI SỰ", `Đã cập nhật ${fetchedArticles.length} bài báo mới nhất từ mạng internet!`);
+        } else {
+          throw new Error("Không có bài viết trả về");
+        }
+      } catch (err) {
+        console.warn("Lỗi fetch RSS, sử dụng dữ liệu pháp lý dự phòng:", err);
+        liveNewsArticles = [...FALLBACK_NEWS_DATABASE];
+        const now = new Date();
+        if (syncElem) syncElem.innerText = `Đồng bộ chuẩn lúc ${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')} (Dự phòng)`;
+        if (countBadge) countBadge.innerText = liveNewsArticles.length;
+        updateMarqueeText(liveNewsArticles);
+        renderNewsGrid();
+      } finally {
+        if (refreshIcon) refreshIcon.classList.remove('animate-spin');
+      }
+    }
+
+    function updateMarqueeText(articles) {
+      const marquee = document.getElementById('live-news-marquee');
+      if (!marquee || !articles || articles.length === 0) return;
+      const headlines = articles.slice(0, 6).map(a => `🔥 [${a.badge}] ${a.title}`).join(" • ");
+      marquee.innerText = headlines;
+    }
+
+    function renderNewsGrid() {
+      const grid = document.getElementById('news-grid');
+      if (!grid) return;
+
+      const filtered = liveNewsArticles.filter(item => {
+        const matchCat = (currentNewsCategory === 'all') || (item.cat === currentNewsCategory);
+        const matchKw = !currentSearchKeyword || 
+          item.title.toLowerCase().includes(currentSearchKeyword.toLowerCase()) ||
+          item.badge.toLowerCase().includes(currentSearchKeyword.toLowerCase()) ||
+          item.desc.toLowerCase().includes(currentSearchKeyword.toLowerCase());
+        return matchCat && matchKw;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center cyber-card rounded-3xl p-8 border border-slate-800">
+            <div class="text-4xl mb-3">🔍</div>
+            <h4 class="text-lg font-bold text-white mb-1">Không tìm thấy bài báo phù hợp</h4>
+            <p class="text-xs text-slate-400 font-mono mb-4">Thử thay đổi từ khóa tìm kiếm hoặc bấm nút "TẤT CẢ" để xem toàn bộ tin thời sự.</p>
+            <button onclick="filterNews('all'); document.getElementById('news-search-input').value='';" class="px-4 py-2 bg-cyan-500 text-slate-950 font-bold text-xs rounded-xl font-mono">
+              XEM TOÀN BỘ TIN TỨC
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => `
+        <article data-cat="${item.cat}" class="cyber-card rounded-3xl overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-cyan-400/60 transition-all" onclick="openNewsArticleById(${item.id})">
+          <div>
+            <div class="relative h-48 overflow-hidden bg-slate-950">
+              <img src="${item.img}" alt="${escapeHtml(item.title)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 font-mono text-[10px] font-black uppercase shadow-md">
+                ${escapeHtml(item.badge)}
+              </span>
+              <span class="absolute bottom-2 right-3 font-mono text-[11px] text-cyan-300 bg-slate-950/80 px-2 py-0.5 rounded border border-cyan-500/30">
+                ${item.date}
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-cyan-400 transition-colors leading-snug mb-2 line-clamp-2">
+                ${escapeHtml(item.title)}
+              </h3>
+              <p class="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+                ${escapeHtml(item.desc)}
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-cyan-400 font-bold">
+            <span class="flex items-center gap-1 group-hover:underline">
+              <span>ĐỌC BẢN TIN CHI TIẾT</span>
+              <span>&rarr;</span>
+            </span>
+            <a href="${item.sourceUrl}" target="_blank" onclick="event.stopPropagation();" class="text-slate-500 hover:text-cyan-300 transition-colors text-[11px]">
+              Báo gốc ↗
+            </a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function escapeHtml(str) {
+      if (!str) return "";
+      return str.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m]);
+    }
+
+    function openNewsArticleById(id) {
       playCyberBeep();
-      const item = OFFICIAL_NEWS_DATA[id];
+      const item = liveNewsArticles.find(a => a.id === id);
       if (!item) return;
+
       document.getElementById('article-badge').innerText = item.badge;
       document.getElementById('article-date').innerText = item.date;
       document.getElementById('article-title').innerText = item.title;
       document.getElementById('article-img').src = item.img;
       document.getElementById('article-body').innerHTML = item.body;
-      document.getElementById('article-source-link').href = item.sourceUrl;
+      
+      const linkElem = document.getElementById('article-source-link');
+      if (linkElem) {
+        linkElem.href = item.sourceUrl;
+        linkElem.innerHTML = `<span>Xem Toàn Văn Bài Báo Tại Nguồn Gốc (${item.badge}) ↗</span>`;
+      }
+
       document.getElementById('news-modal').classList.add('active');
+    }
+
+    function openNewsArticle(id) {
+      openNewsArticleById(id);
     }
 
     function closeNewsModal() {
@@ -1450,26 +1780,25 @@
 
     function filterNews(cat) {
       playCyberBeep();
-      ['all', 'chinhphu', 'mard', 'vasep', 'ec'].forEach(c => {
+      currentNewsCategory = cat;
+
+      ['all', 'chinhphu', 'mard', 'vasep', 'ec', 'baochi'].forEach(c => {
         const btn = document.getElementById('filter-' + c);
         if (btn) {
           if (c === cat) {
-            btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500 text-slate-950 transition-all font-mono";
+            btn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-slate-950 transition-all font-mono";
           } else {
-            btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono";
+            btn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700 transition-all font-mono";
           }
         }
       });
 
-      const cards = document.querySelectorAll('#news-grid article');
-      cards.forEach(card => {
-        const cardCat = card.getAttribute('data-cat');
-        if (cat === 'all' || cardCat === cat) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
+      renderNewsGrid();
+    }
+
+    function handleNewsSearch(val) {
+      currentSearchKeyword = (val || "").trim();
+      renderNewsGrid();
     }
 
     // --- 2. Functional Link Actions ---
@@ -1856,6 +2185,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       updateUserUI();
+      fetchLiveNews();
     });
   </script>
 

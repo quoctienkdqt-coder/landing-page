@@ -17,7 +17,8 @@ if CURRENT_DIR not in sys.path:
 from config import (
     COLOR_BG, COLOR_NAVY, COLOR_PRIMARY, COLOR_SUCCESS, 
     COLOR_WARNING, COLOR_TEXT, CURRENT_VERSION, get_hidden_api_key,
-    get_gemini_api_key, load_company_list, get_hardware_id
+    get_gemini_api_key, load_company_list, get_hardware_id,
+    load_config, save_config
 )
 from services.ai_service import AIService
 from services.export_service import ExportService
